@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetratherix Scientific Intelligence</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Tetratherix Scientific Intelligence Workspace</h1>
+      <p>Upload and analyse PDFs for actionable R&D, quality, and regulatory insight.</p>
+    </header>
+
+    <main class="layout">
+      <aside class="left-panel card">
+        <h2>Upload PDFs</h2>
+        <div id="dropZone" class="drop-zone">Drag and drop PDFs here</div>
+        <input id="fileInput" type="file" multiple accept="application/pdf" />
+        <button id="uploadBtn">Upload & Analyse</button>
+
+        <h3>Upload Status</h3>
+        <ul id="uploadList"></ul>
+
+        <h3>Library / History</h3>
+        <div class="filters">
+          <input id="keywordFilter" placeholder="Filter by keyword/tag" />
+          <input id="yearFilter" placeholder="Year" />
+          <select id="typeFilter">
+            <option value="">All document types</option>
+            <option value="review">Review</option>
+            <option value="original study">Original study</option>
+          </select>
+        </div>
+        <ul id="libraryList"></ul>
+      </aside>
+
+      <section class="main-panel card">
+        <div class="panel-header">
+          <h2 id="docTitle">No article selected</h2>
+          <div>
+            <button id="copySummaryBtn">Copy Summary</button>
+            <button id="exportWordBtn">Export Word</button>
+            <button id="exportCsvBtn">Export CSV</button>
+            <button id="exportPdfBtn">Export PDF</button>
+          </div>
+        </div>
+
+        <nav class="tabs">
+          <button class="tab active" data-tab="summaryTab">Summary</button>
+          <button class="tab" data-tab="dataTab">Extracted Data</button>
+          <button class="tab" data-tab="qaTab">Q&A</button>
+          <button class="tab" data-tab="comparisonTab">Comparison</button>
+        </nav>
+
+        <article id="summaryTab" class="tab-content active"></article>
+        <article id="dataTab" class="tab-content"></article>
+
+        <article id="qaTab" class="tab-content">
+          <div class="qa-box">
+            <textarea id="questionInput" rows="3" placeholder="Ask: What is the actual takeaway from this paper?"></textarea>
+            <button id="askBtn">Ask</button>
+            <div id="answerBox"></div>
+          </div>
+        </article>
+
+        <article id="comparisonTab" class="tab-content">
+          <p>Select papers from the library (checkbox) then click compare.</p>
+          <button id="compareBtn">Compare Selected Papers</button>
+          <div id="comparisonOutput"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

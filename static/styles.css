@@ -1,0 +1,98 @@
+:root {
+  --blue: #0f4f7c;
+  --teal: #138f99;
+  --light: #f4f9fc;
+  --border: #d5e5f1;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  background: #fff;
+  color: #173042;
+}
+header {
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, #ffffff, #f5fbff);
+}
+header h1 { margin: 0 0 6px; color: var(--blue); }
+.layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(18, 72, 108, 0.05);
+}
+.left-panel { padding: 14px; }
+.main-panel { padding: 14px; min-height: 80vh; }
+.drop-zone {
+  border: 2px dashed var(--teal);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  background: var(--light);
+}
+.drop-zone.dragging { background: #e7f7f8; }
+button {
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin: 4px 4px 4px 0;
+}
+button:hover { background: #0a3f64; }
+ul { list-style: none; padding: 0; }
+li {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: #fcfeff;
+}
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tabs { margin-top: 8px; border-bottom: 1px solid var(--border); }
+.tab { background: transparent; color: var(--blue); }
+.tab.active { border-bottom: 3px solid var(--teal); border-radius: 0; }
+.tab-content { display: none; padding-top: 12px; }
+.tab-content.active { display: block; }
+.section {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.filters input, .filters select, textarea {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #e8f4ff;
+  color: var(--blue);
+  margin: 2px;
+  font-size: 12px;
+}
+@media (max-width: 1000px) {
+  .layout { grid-template-columns: 1fr; }
+}
